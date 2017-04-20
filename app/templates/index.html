@@ -2,11 +2,11 @@
 
 {% block content %}
     {% for ep in eps %}
-    <div class="content">
+    <div id="episode-container">
       <div class="col-xs-3"><img src="feed/images/{{ ep.author.replace(' ','').lower() }}.png" alt="{{ ep.author}}" /></div>
       <div class="col-xs-9">
-        <h1>{{ ep.author }} - {{ ep.date }}</h2>
-        <h2><a href="{{ ep.link }}">{{ ep.title }} [{{ ep.time }}]</a></h4>
+        <h1>{{ ep.author }} - {{ ep.date }}</h1>
+        <p><a href="{{ ep.link }}">{{ ep.title }} [{{ ep.time }}]</a></p>
         <p>{{ ep.desc }}</p>
       </div>
     </div>
