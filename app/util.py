@@ -11,11 +11,14 @@ def get_episodes(podcasts):  # Should cache data so I dont have to get it each t
     for podcast in podcasts:
         r = requests.get(podcast)
         d = xmltodict.parse(r.text)
-        episodes += d['rss']['channel']['item']
+        if isinstance(d['rss']['channel']['item'], list):
+            episodes += d['rss']['channel']['item']
+        else:  # New show, single ep
+            episodes.append(d['rss']['channel']['item'])
 
     episodes = sorted(episodes, key=lambda k: parser.parse(k['pubDate']), reverse=True)
 
-    episodes = episodes[:10]  # Add pagination and remove me
+    episodes = episodes[:20]  # Add pagination and remove me
 
     for i, ep in enumerate(episodes):
         episodes[i] = {

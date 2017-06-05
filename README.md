@@ -1,13 +1,13 @@
 ## Description
 This is an aggregator for RT podcast feeds linking back to the podcasts on the RT site. It 
-currently displays the last 10 podcasts from the aggregated feed.
+currently displays the last 20 podcasts from the aggregated feed.
 
 
 ![index.html](/docs/images/feed.png)
 
 ## To Do 
 * Caching feeds/sharing across sessions
-* Pagination/not limiting to 10
+* Pagination/not limiting to 20
 * Loading wheel? Some fancy JS stuff would be cool
 
 ## Installation
