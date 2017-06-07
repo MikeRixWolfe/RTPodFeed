@@ -1,14 +1,8 @@
 ## Description
-This is an aggregator for RT podcast feeds linking back to the podcasts on the RT site. It 
-currently displays the last 20 podcasts from the aggregated feed.
+This is an aggregator for RT podcast feeds linking back to the podcasts on the RT site.
 
 
 ![index.html](/docs/images/feed.png)
-
-## To Do 
-* Caching feeds/sharing across sessions
-* Pagination/not limiting to 20
-* Loading wheel? Some fancy JS stuff would be cool
 
 ## Installation
 Install python 2.7.x and then run the following
@@ -32,6 +26,8 @@ Browse to `http://yoursite.tld/feed` for the podcast feed.
 ## Requirements
 * Python 2.7.x
 * Flask
+* Flask-Cache
+* Flask-Paginate
 * Logging
 * Requests
 * XmlToDict

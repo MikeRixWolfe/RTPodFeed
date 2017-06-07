@@ -1,4 +1,6 @@
 Flask
+Flask-Cache
+Flask-Paginate
 logging
 requests
 xmltodict

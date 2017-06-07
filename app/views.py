@@ -1,20 +1,27 @@
-from flask import render_template, send_file
-from app import app
+from flask import render_template, request, send_file
+from flask_paginate import Pagination
+from app import app, cache
 from .util import get_episodes
 
 
 @app.route('/feed', strict_slashes=False, methods=['GET'])
 def index():
-    # Get a proper loading wheel
-    #flash('Loading...', 'success')
+    eps = get_episodes(app.config['PODCASTS_CSV'].split(','))
 
-    episodes = get_episodes(app.config['PODCASTS_CSV'].split(','))
+    page = request.args.get('page', type=int, default=1)
+    pagination = Pagination(page=page,
+                            total=len(eps),
+                            css_framework='foundation',
+                            prev_label='< Prev',
+                            next_label='Next >')
+    page_eps = eps[(page-1)*10:page*10]
 
     return render_template('index.html',
-                           eps=episodes)
+                           eps=page_eps,
+                           pagination=pagination)
 
-# Helper for running behind nginx because I'm lazy
+
 @app.route('/feed/images/<image>', strict_slashes=False, methods=['GET'])
-def nginx_img_helper(image):
+def send_img(image):
     return send_file('images/' + image, mimetype='image/png')
 
