@@ -1,12 +1,13 @@
 from flask import render_template, request, send_file
 from flask_paginate import Pagination
+from json import loads
 from app import app, cache
-from .util import get_episodes
 
 
 @app.route('/feed', strict_slashes=False, methods=['GET'])
 def index():
-    eps = get_episodes(app.config['PODCASTS_CSV'].split(','))
+    with open('app/persist/episodes', 'r') as f:
+        eps = loads(f.read())
     per_page = app.config.get('PER_PAGE', 10)
 
     page = request.args.get('page', type=int, default=1)

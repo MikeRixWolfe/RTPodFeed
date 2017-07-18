@@ -19,7 +19,8 @@ with the name matching the title tag in the RSS feed (lowercase, no spaces, png)
 
 ## Usage
 #### Server
-Run `./run` supervise/wsgi/whatever.
+Run `./run` with supervise/wsgi/whatever.
+Add `*/5 * * * * python2 /your/path/here/rtpodfeed/util.py` to crontab to get episodes for the app server.
 #### Client
 Browse to `http://yoursite.tld/feed` for the podcast feed.
 

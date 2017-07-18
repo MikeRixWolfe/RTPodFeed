@@ -3,10 +3,9 @@ import requests
 import xmltodict
 from collections import OrderedDict
 from dateutil import parser
-from app import cache
+from json import dumps
+from app import app
 
-
-@cache.memoize(600)
 def get_episodes(podcasts):
     episodes = []
 
@@ -31,4 +30,8 @@ def get_episodes(podcasts):
         }
 
     return episodes
+
+if __name__ == "__main__":
+    with open('app/persist/episodes', 'w') as f:
+        f.write(dumps(get_episodes(app.config['PODCASTS_CSV'].split(','))))
 
