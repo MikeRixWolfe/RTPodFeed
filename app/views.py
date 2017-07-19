@@ -6,7 +6,7 @@ from app import app, cache
 
 @app.route('/feed', strict_slashes=False, methods=['GET'])
 def index():
-    with open('app/persist/episodes', 'r') as f:
+    with app.open_resource('persist/episodes', 'r') as f:
         eps = loads(f.read())
     per_page = app.config.get('PER_PAGE', 10)
 
