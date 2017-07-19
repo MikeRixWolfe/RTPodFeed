@@ -32,6 +32,6 @@ def get_episodes(podcasts):
     return episodes
 
 if __name__ == "__main__":
-    with app.open_resource('persist/episodes', 'w') as f:
+    with app.open_resource('persist/episodes', 'w+') as f:
         f.write(dumps(get_episodes(app.config['PODCASTS_CSV'].split(','))))
 
