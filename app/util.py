@@ -1,8 +1,4 @@
 #!/usr/bin/env python
-import datetime
-import requests
-import xmltodict
-from collections import OrderedDict
 from json import loads
 from app import app, cache
 
