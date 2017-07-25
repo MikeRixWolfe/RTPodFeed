@@ -2,12 +2,13 @@ from flask import render_template, request, send_file
 from flask_paginate import Pagination
 from json import loads
 from app import app
-from .util import get_episodes
+from .util import get_episodes, get_timestamp
 
 
 @app.route('/feed', strict_slashes=False, methods=['GET'])
 def index():
     eps = get_episodes()
+    timestamp = get_timestamp()
     per_page = app.config.get('PER_PAGE', 10)
 
     page = request.args.get('page', type=int, default=1)
@@ -21,7 +22,8 @@ def index():
 
     return render_template('index.html',
                            eps=page_eps,
-                           pagination=pagination)
+                           pagination=pagination,
+                           timestamp=timestamp)
 
 
 @app.route('/feed/images/<image>', strict_slashes=False, methods=['GET'])
