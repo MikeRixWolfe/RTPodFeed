@@ -21,7 +21,7 @@ with the name matching the title tag in the RSS feed (lowercase, no spaces, png)
 #### Server
 Run `./run` with supervise/wsgi/whatever.
 
-Add `*/5 * * * * /your/path/here/rtpodfeed/util` to crontab to get episodes for the app server. The episodes are fetched on a cron basus rather than by web request for scalability and to reduce page load time to recache thousands of eps for beter UX.
+Add `*/5 * * * * /your/path/here/rtpodfeed/util` to crontab to get episodes for the app server. We fetch episodes on a cron basis rather than by web request for scalability and to reduce page load time to recache thousands of episodes for beter UX.
 #### Client
 Browse to `http://yoursite.tld/feed` for the podcast feed.
 
