@@ -34,6 +34,11 @@ def get_episodes(podcasts):
     return episodes
 
 if __name__ == "__main__":
-    with open(path.join(app.root_path, 'persist/episodes'), 'w+') as f:
-        f.write(dumps(get_episodes(app.config['PODCASTS_CSV'].split(','))))
-
+    try:
+        eps = get_episodes(app.config['PODCASTS_CSV'].split(','))
+        if eps:
+            with open(path.join(app.root_path, 'persist/episodes'), 'w+') as f:
+                f.write(dumps(eps))
+    except:
+        pass
+ 
