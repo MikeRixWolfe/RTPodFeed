@@ -40,6 +40,6 @@ if __name__ == "__main__":
         if eps:
             with open(path.join(app.root_path, 'persist/episodes'), 'w+') as f:
                 f.write(dumps(eps))
-    except:
-        pass
- 
+    except Exception as e:
+        print e
+

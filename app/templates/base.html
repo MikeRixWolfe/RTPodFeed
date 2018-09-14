@@ -3,7 +3,7 @@
     <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
 
-    <link rel="icon" type="image/png" href="https://roosterteeth.com/rt-favicon.png">
+    <link rel="icon" type="image/png" href="https://assets.roosterteeth.com/img/rt-favicon.png">
     <link rel="stylesheet" type="text/css" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Oswald" />
     <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Open+Sans" />
@@ -65,6 +65,13 @@
             background-color: rgb(39, 39, 39);
             color: white;
             border: 1px solid black;
+        }
+
+        .pagination>li>a:focus, .pagination>li>a:hover, .pagination>li>span:focus, .pagination>li>span:hover {
+            z-index: 3;
+            color: white;
+            background-color: rgb(49, 49, 49);
+            border-color: black;
         }
 
         .pagination>li.unavailable>a, .pagination>li.current>a {
