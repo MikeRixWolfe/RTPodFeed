@@ -8,7 +8,7 @@
         <h1>{{ ep.author }} - {{ ep.date }}</h1>
         <p><a href="{{ ep.link }}">{{ ep.title }} [{{ ep.time }}]</a></p>
         <p>{{ ep.desc }}</p>
-        <audio style="width: 100%" src="{{ep.mp3}}" controls=""></audio>
+        <audio style="width: 100%" src="{{ep.mp3}}" controls="" preload="none"></audio>
       </div>
     </div>
     <br />
