@@ -2,7 +2,7 @@
 This is an aggregator for RT podcast feeds linking back to the podcasts on the RT site.
 
 
-![index.html](/docs/images/feed.png)
+![index.html](/docs/images/feed2.png)
 
 ## Installation
 Install python 2.7.x and then run the following
