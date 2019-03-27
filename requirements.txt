@@ -1,7 +1,6 @@
 Flask
 Flask-Caching
 Flask-Paginate
-logging
 python-dateutil
 requests
 xmltodict

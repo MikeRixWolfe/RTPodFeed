@@ -1,8 +1,0 @@
-#!/usr/bin/env python
-import logging
-from app import app
-
-logging.basicConfig(filename='app.log', level=logging.INFO)
-app.run(host=app.config['HOST'],
-        port=app.config['PORT'],
-        debug=app.config['DEBUG'])

@@ -19,7 +19,7 @@ with the name matching the title tag in the RSS feed (lowercase, no spaces, png)
 
 ## Usage
 #### Server
-Run `./run` with supervise/wsgi/whatever.
+Run `wsgi.py` with wsgi/daemontools/whatever.
 
 Add `*/5 * * * * /your/path/here/rtpodfeed/util` to crontab to get episodes for the app server. We fetch episodes on a cron basis rather than by web request for scalability and to reduce page load time to recache thousands of episodes for a better UX.
 #### Client
@@ -28,9 +28,8 @@ Browse to `http://yoursite.tld/feed` for the podcast feed.
 ## Requirements
 * Python 2.7.x
 * Flask
-* Flask-Cache
+* Flask-Caching
 * Flask-Paginate
-* Logging
 * Requests
 * XmlToDict
 
