@@ -3,21 +3,22 @@
 {% block content %}
     {% for ep in eps %}
     <div id="episode-container">
-      <div class="col-xs-3"><img src="feed/images/{{ ep.author.replace(' ','').lower() }}.png" alt="{{ ep.author}}" /></div>
-      <div class="col-xs-9">
-        <h1>{{ ep.author }} - {{ ep.date }}</h1>
-        <p><a href="{{ ep.link }}">{{ ep.title }} [{{ ep.time }}]</a></p>
-        <p>{{ ep.desc }}</p>
-        <audio style="width: 100%" src="{{ep.mp3}}" controls="" preload="none"></audio>
+      <div id="episode-child" class="col-xs-12">
+        <div class="col-xs-3"><img src="feed/images/{{ ep.author.replace(' ','').lower() }}.png" alt="{{ ep.author}}" /></div>
+        <div class="col-xs-9">
+          <h1>{{ ep.author }} - {{ ep.date }}</h1>
+          <p><a href="{{ ep.link }}">{{ ep.title }} [{{ ep.time }}]</a></p>
+          <p>{{ ep.desc }}</p>
+          <audio style="width: 100%" src="{{ep.mp3}}" controls="" preload="none"></audio>
+        </div>
       </div>
     </div>
-    <br />
     {% endfor %}
     <br />
     <div class="parent"><div class="child">
     {{ pagination.links }}
     </div></div>
     <div id="footer">
-        <p class="copyright" style="text-align: center">{{ timestamp }}</p>
+        <p class="copyright" style="text-align: center">{{ timestamp }} - <a href="https://github.com/MikeRixWolfe/RTPodFeed">Source</a></p>
     </div>
 {% endblock %}
