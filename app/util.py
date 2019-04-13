@@ -1,6 +1,5 @@
 from datetime import datetime
 from os import path
-from time import daylight, tzname
 from json import loads
 from app import app, cache
 
@@ -13,7 +12,12 @@ def get_episodes():
 @cache.memoize(120)
 def get_timestamp():
     fpath = path.dirname(path.abspath(__file__)) + '/persist/episodes'
-    timestamp = datetime.fromtimestamp(path.getmtime(fpath)).strftime('%-I:%M %p')
+    delta = (int(datetime.now().strftime('%s')) - int(path.getmtime(fpath))) // 60
 
-    return "Last updated at {} {}".format(timestamp, tzname[daylight])
+    if delta == 0:
+        return "Updated moments ago"
+    elif delta == 1:
+        return "Updated {} minute ago".format(delta)
+    else:
+        return "Updated {} minutes ago".format(delta)
 
