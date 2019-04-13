@@ -4,12 +4,12 @@ from json import loads
 from app import app, cache
 
 
-@cache.memoize(120)
+@cache.cached(timeout=60, key_prefix='episodes')
 def get_episodes():
     with app.open_resource('persist/episodes', 'r') as f:
         return loads(f.read())
 
-@cache.memoize(120)
+@cache.cached(timeout=60, key_prefix='timestamp')
 def get_timestamp():
     fpath = path.dirname(path.abspath(__file__)) + '/persist/episodes'
     delta = (int(datetime.now().strftime('%s')) - int(path.getmtime(fpath))) // 60
