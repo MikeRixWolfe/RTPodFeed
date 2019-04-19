@@ -2,7 +2,7 @@
 
 {% block content %}
     {% for ep in eps %}
-    <div id="episode-container">
+    <div id="episode-container" class="row">
       <div id="episode-child" class="col-xs-12">
         <div class="col-xs-3"><img src="feed/images/{{ ep.author.replace(' ','').lower() }}.png" alt="{{ ep.author}}" /></div>
         <div class="col-xs-9">
@@ -14,11 +14,10 @@
       </div>
     </div>
     {% endfor %}
-    <br />
-    <div class="parent"><div>
-    {{ pagination.links }}
-    </div></div>
-    <div id="footer">
+    <div class="parent" class="row">
+        {{ pagination.links }}
+    </div>
+    <div id="footer" class="row">
         <p class="copyright" style="text-align: center">{{ timestamp }} - <a href="https://github.com/MikeRixWolfe/RTPodFeed">Source</a></p>
     </div>
 {% endblock %}

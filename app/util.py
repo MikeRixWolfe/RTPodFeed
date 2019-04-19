@@ -15,7 +15,7 @@ def get_timestamp():
     delta = (int(datetime.now().strftime('%s')) - int(path.getmtime(fpath))) // 60
 
     if delta == 0:
-        return "Updated moments ago"
+        return "Updated a moment ago"
     elif delta == 1:
         return "Updated {} minute ago".format(delta)
     else:
