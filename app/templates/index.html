@@ -9,15 +9,15 @@
           <h1>{{ ep.author }} - {{ ep.date }}</h1>
           <p><a href="{{ ep.link }}">{{ ep.title }} [{{ ep.time }}]</a></p>
           <p>{{ ep.desc }}</p>
-          <audio style="width: 100%" src="{{ep.mp3}}" controls="" preload="none"></audio>
+          <audio src="{{ep.mp3}}" controls="" preload="none"></audio>
         </div>
       </div>
     </div>
     {% endfor %}
-    <div class="parent" class="row">
+    <div class="parent row">
         {{ pagination.links }}
     </div>
     <div class="footer row">
-        <p class="copyright" style="text-align: center">{{ timestamp }} - <a href="https://github.com/MikeRixWolfe/RTPodFeed">Source</a></p>
+        <p class="copyright">{{ timestamp }} - <a href="https://github.com/MikeRixWolfe/RTPodFeed">Source</a></p>
     </div>
 {% endblock %}

@@ -12,16 +12,16 @@ def index():
     per_page = app.config.get('PER_PAGE', 10)
 
     page = request.args.get('page', type=int, default=1)
-    pagination = Pagination(page=page,
+    pagination = Pagination(page = page,
                             per_page = per_page,
-                            total=len(eps),
-                            css_framework='foundation',
-                            prev_label='< Prev',
-                            next_label='Next >')
+                            total = len(eps),
+                            css_framework = 'foundation',
+                            prev_label = '< Prev',
+                            next_label = 'Next >')
     page_eps = eps[(page-1)*per_page:page*per_page]
 
     return render_template('index.html',
-                           eps=page_eps,
-                           pagination=pagination,
-                           timestamp=timestamp)
+                           eps = page_eps,
+                           pagination = pagination,
+                           timestamp = timestamp)
 
