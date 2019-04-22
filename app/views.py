@@ -25,8 +25,3 @@ def index():
                            pagination=pagination,
                            timestamp=timestamp)
 
-
-@app.route('/feed/images/<image>', strict_slashes=False, methods=['GET'])
-def send_img(image):
-    return send_file('images/' + image, mimetype='image/png')
-
