@@ -38,7 +38,7 @@ audio {
     font-size: 12px;
     font-weight: 300;
     color: #888888;
-    margin-bottom: 0;
+    margin: auto;
 }
 
 .pagination {
@@ -47,6 +47,7 @@ audio {
 
 .parent {
     text-align: center;
+    margin: auto;
 }
 
 .copyright {

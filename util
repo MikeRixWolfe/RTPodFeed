@@ -29,7 +29,7 @@ def get_episodes(podcasts):
             'time': ep['itunes:duration'],
             'desc': ep['description'],
             'link': ep['link'],
-            'mp3': ep['enclosure']['@url']
+            'mp3': ep['enclosure']['@url'].replace('http://', 'https://')
         }
 
     return episodes
