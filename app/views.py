@@ -1,6 +1,5 @@
-from flask import render_template, request, send_file
+from flask import render_template, request
 from flask_paginate import Pagination
-from json import loads
 from app import app
 from .util import get_episodes, get_timestamp
 
