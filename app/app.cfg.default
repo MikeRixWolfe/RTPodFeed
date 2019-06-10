@@ -1,5 +1,4 @@
 HOST = '0.0.0.0'
 PORT = 8199
 DEBUG = False
-SEND_FILE_MAX_AGE_DEFAULT = 60
 PODCASTS_CSV = 'http://roosterteeth.com/show/rt-podcast/feed/mp3,http://achievementhunter.roosterteeth.com/show/off-topic-the-achievement-hunter-podcast/feed/mp3,http://roosterteeth.com/show/always-open/feed/mp3,http://theknow.roosterteeth.com/show/glitch-please/feed/mp3'

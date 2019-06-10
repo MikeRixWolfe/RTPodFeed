@@ -9,6 +9,7 @@ def get_episodes():
     with app.open_resource('persist/episodes', 'r') as f:
         return loads(f.read())
 
+
 @cache.cached(timeout=60, key_prefix='timestamp')
 def get_timestamp():
     fpath = path.dirname(path.abspath(__file__)) + '/persist/episodes'
@@ -20,4 +21,9 @@ def get_timestamp():
         return "Updated {} minute ago".format(delta)
     else:
         return "Updated {} minutes ago".format(delta)
+
+
+@app.template_filter('lrep')
+def lower_and_replace(text):
+    return text.replace(' ', '').lower()
 
