@@ -12,7 +12,7 @@ def get_episodes():
 
 @cache.cached(timeout=60, key_prefix='timestamp')
 def get_timestamp():
-    fpath = path.dirname(path.abspath(__file__)) + '/persist/episodes'
+    fpath = path.dirname(path.realpath(__file__)) + '/persist/episodes'
     delta = (int(datetime.now().strftime('%s')) - int(path.getmtime(fpath))) // 60
 
     if delta == 0:
