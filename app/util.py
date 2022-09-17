@@ -25,5 +25,5 @@ def get_timestamp():
 
 @app.template_filter('lrep')
 def lower_and_replace(text):
-    return text.replace(' ', '').lower()
+    return text.replace(' ', '').replace('*','').lower()
 
