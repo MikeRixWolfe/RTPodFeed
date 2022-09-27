@@ -1,6 +1,7 @@
+import re
 from datetime import datetime
-from os import path
 from json import loads
+from os import path
 from app import app, cache
 
 
@@ -41,4 +42,30 @@ def make_timestamp(seconds):
             return '{:02d}:{:02d}'.format(m, s)
 
     return '-'
+
+
+@app.template_filter('unsponsor')
+def unsponsor(text):
+    if u'Sponsored by' in text:
+        text = re.sub(r'Sponsored by.*', '', text, flags=re.S)
+    if u'This episode of Off Topic is sponsored by' in text:
+        text = re.sub(r'This episode of Off Topic is sponsored by.*', '', text, flags=re.S)
+    if u'Want to contribute' in text:
+        text =  re.sub(r'Want to contribute.*', '', text, flags=re.S)
+    if u'This episode is sponsored by' in text:
+        text = re.sub(r'This episode is sponsored by.*', '', text, flags=re.S)
+    if u'This week\'s episode is sponsored by' in text:
+        text = re.sub(r'This week\'s episode is sponsored by.*', '', text, flags=re.S)
+    if u'Download the full audio' in text:
+        text = re.sub(r'Download the full audio.*', '', text, flags=re.S)
+    if u'Download the audio' in text:
+        text = re.sub(r'Download the audio.*', '', text, flags=re.S)
+    if u'This episode is brought to you by' in text:
+        text = re.sub(r'This episode is brought to you by.*', '', text, flags=re.S)
+    if u'This episode originally aired' in text:
+        text = re.sub(r'This episode originally aired.*', '', text, flags=re.S)
+    if u'This episode originally recorded' in text:
+        text = re.sub(r'This episode originally recorded.*', '', text, flags=re.S)
+
+    return text.strip()
 

@@ -8,7 +8,7 @@
         <div class="col-xs-9">
           <h1>{{ ep.author }} - {{ ep.date }}</h1>
           <p><a href="{{ ep.link }}">{{ ep.title }} [{{ ep.time|timestamp }}]</a></p>
-          <p>{{ ep.desc }}</p>
+          <p>{{ ep.desc|unsponsor }}</p>
           <audio src="{{ep.mp3}}" controls="" preload="none"></audio>
         </div>
       </div>
