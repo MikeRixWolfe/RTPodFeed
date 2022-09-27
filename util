@@ -1,12 +1,12 @@
 #!/usr/bin/env python
 import datetime
-import re
 import requests
 import xmltodict
 from collections import OrderedDict
 from dateutil import parser
 from json import dumps
 from os import path
+from unicodedata import normalize
 from app import app
 
 def get_episodes(podcasts):
@@ -26,8 +26,8 @@ def get_episodes(podcasts):
                     'pubDate': ep['pubDate'],
                     'date': parser.parse(ep['pubDate']).strftime('%-m/%-d/%Y'),
                     'title': ep['title'],
-                    'time': re.sub(r'\s+', ' ', ep['itunes:duration']),
-                    'desc': ep['description'],
+                    'time': ep['itunes:duration'],
+                    'desc': normalize('NFKD', ep['description']),
                     'link': ep['link'],
                     'mp3': ep['enclosure']['@url'].replace('http://', 'https://')
                 }
