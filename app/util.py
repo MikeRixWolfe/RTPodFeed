@@ -27,3 +27,18 @@ def get_timestamp():
 def lower_and_replace(text):
     return text.replace(' ', '').replace('*','').lower()
 
+
+@app.template_filter('timestamp')
+def make_timestamp(seconds):
+    if seconds is not None:
+        seconds = int(seconds)
+        h = seconds // 3600 % 24
+        m = seconds % 3600 // 60
+        s = seconds % 3600 % 60
+        if h > 0:
+            return '{:02d}:{:02d}:{:02d}'.format(h, m, s)
+        else:
+            return '{:02d}:{:02d}'.format(m, s)
+
+    return '-'
+
