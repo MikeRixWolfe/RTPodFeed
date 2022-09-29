@@ -19,7 +19,7 @@ def get_episodes(podcasts):
         _episodes = []
         author = d['rss']['channel']['title']
 
-        for ep in enumerate(d['rss']['channel']['item']):
+        for ep in d['rss']['channel']['item']:
             try:
                 _episodes.append({
                     'author': author,
