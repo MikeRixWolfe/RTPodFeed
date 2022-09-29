@@ -64,8 +64,12 @@ def unsponsor(text):
         text = re.sub(r'This episode is brought to you by.*', '', text, flags=re.S)
     if u'This episode originally aired' in text:
         text = re.sub(r'This episode originally aired.*', '', text, flags=re.S)
+    if u'This episode was recorded' in text:
+        text = re.sub(r'This episode was recorded.*', '', text, flags=re.S)
     if u'This episode originally recorded' in text:
         text = re.sub(r'This episode originally recorded.*', '', text, flags=re.S)
+    if u'If you want to send your towel cards in' in text:
+        text = re.sub(r'If you want to send your towel cards in.*', '', text, flags=re.S)
 
     return text.strip()
 

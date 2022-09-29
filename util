@@ -16,12 +16,12 @@ def get_episodes(podcasts):
         r = requests.get(podcast)
         d = xmltodict.parse(r.text)
         
-        _episodes = d['rss']['channel']['item']
+        _episodes = []
         author = d['rss']['channel']['title']
 
-        for i, ep in enumerate(_episodes):
+        for ep in enumerate(d['rss']['channel']['item']):
             try:
-                _episodes[i] = {
+                _episodes.append({
                     'author': author,
                     'pubDate': ep['pubDate'],
                     'date': parser.parse(ep['pubDate']).strftime('%-m/%-d/%Y'),
@@ -30,18 +30,14 @@ def get_episodes(podcasts):
                     'desc': normalize('NFKD', ep['description']),
                     'link': ep['link'],
                     'mp3': ep['enclosure']['@url'].replace('http://', 'https://')
-                }
-
+                })
             except:
                 pass
     
-        if isinstance(_episodes, list):
-            episodes += _episodes
-        else:  # New show, single ep
-            episodes.append(_episodes)
+        episodes += _episodes
    
     episodes = sorted(episodes, key=lambda k: parser.parse(k['pubDate']), reverse=True)
-
+    
     return episodes
 
 
